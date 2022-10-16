@@ -8,7 +8,7 @@ const createUser = async (email, username, password, res) => {
     Password: password,
   });
   newUser.save();
-  res.status(204).render("/login", {
+  res.status(201).render("login", {
     success: "You can now login!",
   });
 };
@@ -21,14 +21,16 @@ export const renderLogin = (req, res) => {
 //Logging an existing user into the application and redirecting to authenticated route or registering if no user exsists
 export const loginRegister = async (req, res) => {
   const { email, username, password } = req.body;
-  await Users.findOne({ Username: username }).then((user) => {
-    if (!user) {
-      return createUser(email, username, password, res);
-    } else {
-      res.status(204).render("profile", {
-        name: username,
+  await Users.findOne({ Email: email }).then((user) => {
+    if (user) {
+      const displayName = user.Username.split(' ')[0];
+      return res.status(201).render("profile", {
+        name: displayName,
       });
     }
+    if (!user) {
+      return createUser(email, username, password, res);
+    } 
   });
 };
 

@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Gemunu+Libre&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="./styles/profile.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="./partials/Header/Header.css">
     <script
       defer
       src="./JavaScript/script.js"
@@ -19,6 +20,8 @@
     <title>Node.js</title>
   </head>
   <body>
+    <%- include('./partials/Header/Header.ejs') %>
   	<h1>Profile</h1>
+    <h2><%=name%>'s ToDoo's</h2>
   </body>
   </html>
