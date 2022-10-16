@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Ryan Large" />
+    <meta name="copyright" content="Ryan Large" />
+    <meta name="description" content="A fullstack TodoList application." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/login.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="./partials/Header/Header.css" type="text/css" media="all" />
+    <script
+      defer
+      src="./JavaScript/login.js"
+      type="module"
+      charset="utf-8"
+    ></script>
+    <title>Node.js</title>
+  </head>
+  <body>
+  	<%- include('./partials/Header/Header.ejs') %>
+  	<h1>Login or Signup</h1>
+  	<form method="post">
+  		<label for="email">Email</label>
+  		<input type="text" name="email" />
+  		<label for="username">Username</label>
+  		<input type="text" name="username"/>
+  		<label for="password">Password</label>
+  		<input type="text" name="password"/>
+  		<button type="submit">Login/Signup</button>
+  	</form>
+  </body>
+  </html>

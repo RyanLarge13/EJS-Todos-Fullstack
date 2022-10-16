@@ -1,0 +1,41 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Acme", sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow-x: hidden;
+  background-image: linear-gradient(to bottom, #ac41ed, #0f0f23, #efadca);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: white;
+}
+
+form {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  color: white;
+  margin: 1em 0 0.25em 0;
+}
+
+input {
+}
+
+button {
+  margin-top: 2em;
+}

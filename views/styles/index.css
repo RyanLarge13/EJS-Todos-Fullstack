@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Acme", sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow-x: hidden;
+  background-image: linear-gradient(to bottom, #c21500, #ffc500, #d53369);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  padding: 0.75em 2em;
+  border-radius: 0.5em;
+  border: none;
+}
+
+.login a {
+  text-decoration: none;
+  color: #000;
+}
