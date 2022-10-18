@@ -13,8 +13,7 @@ const app = express();
 //Middleware
 app.use(parser.urlencoded({ extended: true }));
 app.use(parser.json());
-app.use('/login', loginRouter);
-app.use('/profile', profileRouter);
+app.use(loginRouter, profileRouter);
 app.use(express.static("views"));
 app.set("view engine", "ejs");
 

@@ -23,7 +23,7 @@
     <%- include('./partials/Header/Header.ejs') %>
   	<h1>Profile</h1>
     <h2 class="name"><%=name%>'s ToDoo's</h2>
-    <form method="post" class="flex-col">
+    <form method="post" action="profile" class="flex-col">
       <h2>Add A Todo</h2>
       <label for="title">What will you do today?</label>
       <input type="text" name="title" id="title" />

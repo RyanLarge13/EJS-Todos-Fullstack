@@ -23,7 +23,7 @@
   	<%- include('./partials/Header/Header.ejs') %>
   	<h1>Login or Signup</h1>
     <h2><%= typeof success != 'undefined' ? success : '' %></h2>
-  	<form class="flex-col" method="post" action="profile">
+  	<form class="flex-col" method="post" action="login">
   		<label for="email">Email</label>
   		<input type="email" name="email" />
   		<label for="username">Username</label>
