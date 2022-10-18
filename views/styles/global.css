@@ -1,0 +1,42 @@
+@import '../partials/Header/Header.css';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Acme", sans-serif;
+  }
+.flex-reg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sec {
+    width: 100vw;
+    height: 100vh;
+}
+.button {
+    margin-top: 2em;
+    padding: 0.75em 2em;
+    border-radius: 0.5em;
+    border: none;
+    background-color: #fff;
+    text-decoration: none;
+    color: #000;
+    box-shadow: .25em .25em .5em 0 #000;
+    transition: 100ms ease-in;
+    cursor: pointer;
+}
+.button:hover {
+    scale: 1.025;
+}
+.button:focus {
+    outline: none;
+    scale: 1.025;
+}

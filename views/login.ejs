@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/login.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="./partials/Header/Header.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="./styles/global.css">
     <script
       defer
       src="./JavaScript/login.js"
@@ -19,18 +19,18 @@
     ></script>
     <title>Node.js</title>
   </head>
-  <body>
+  <body class="flex-col">
   	<%- include('./partials/Header/Header.ejs') %>
   	<h1>Login or Signup</h1>
     <h2><%= typeof success != 'undefined' ? success : '' %></h2>
-  	<form method="post">
+  	<form class="flex-col" method="post">
   		<label for="email">Email</label>
-  		<input type="text" name="email" />
+  		<input type="email" name="email" />
   		<label for="username">Username</label>
   		<input type="text" name="username"/>
   		<label for="password">Password</label>
-  		<input type="text" name="password"/>
-  		<button type="submit">Login/Signup</button>
+  		<input type="password" name="password"/>
+  		<button type="submit" class="button">Login/Signup</button>
   	</form>
   </body>
   </html>

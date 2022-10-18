@@ -2,19 +2,38 @@ header {
   position: absolute;
   top: 0;
   width: 100vw;
-  height: 10vh;
+  height: 7.5vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   background-color: #fff;
 }
-
-.logo {
-  font-size: 1.5em;
-  margin-left: 1em;
-  font-weight: 600;
+header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  z-index: -1;
+  transform: rotate(-1.25deg) translateX(-1em);
+  filter: blur(10px);
 }
-
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  z-index: -1;
+  transform: rotate(1.25deg) translateX(1em);
+  filter: blur(10px);
+}
+.logo {
+  font-size: 2.25em;
+  margin-left: 1em;
+  font-weight: 700;
+  background: -webkit-linear-gradient(#ffc500,#d53369);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .logo a {
 	text-decoration: none;
 	color: #000;

@@ -22,4 +22,4 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.listen(port, () => console.log(`Your app is listening on port ${port}.`));
+app.listen(port, () => console.log(`Your app is listening on port ${port} : http://localhost:8080`));
