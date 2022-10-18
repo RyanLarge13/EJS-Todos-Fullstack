@@ -1,6 +1,7 @@
 import { Users } from "../models/userModel.js";
 import jwt from 'jsonwebtoken';
 import passport from 'passport';
+import bcrypt from 'bcryptjs';
 import '../auth/passportjwt.js';
 
 //Global functions for handling data and authentication
@@ -15,10 +16,11 @@ const generateJWTToken = (user) => {
 };
 
 const createUser = async (email, username, password, res) => {
+  const hash = await bcrypt.hash(password, 10);
   const newUser = await Users.create({
     Email: email,
     Username: username,
-    Password: password,
+    Password: hash,
   });
   newUser.save();
   res.status(201).render("login", {
@@ -34,28 +36,27 @@ export const renderLogin = (req, res) => {
 //Logging an existing user into the application and redirecting to authenticated route or registering if no user exsists
 export const loginRegister = async (req, res) => {
   passport.authenticate('local', { session: false }, (err, user, info) => {
-    if (err || !user) {
+    if (err) {
       return res.status(400).json({
-      err: 'Something is not right',
-      user: user
+        err: 'Something is not right',
+        user: user
       });
     }
-    req.login(user, { session: false }, (err) => {
+    if (info) {
+      return res.render('login', {
+        err: info.message
+      })
+    }
+    if (!user) {
+      const { email, username, password } = req.body;
+      return createUser(email, username, password, res);
+    }
+    if (user) { 
+      req.login(user, { session: false }, (err) => {
       if (err) res.send(err);
       const token = generateJWTToken(user.toJSON());
-      return res.json({ user, token })
+      return res.status(204).json({ token: token });
     });
+  }
   })(req, res)
-  // const { email, username, password } = req.body;
-  // await Users.findOne({ Email: email }).then((user) => {
-  //   if (user) {
-  //     const displayName = user.Username.split(' ')[0];
-  //     return res.status(201).render("profile", {
-  //       name: displayName,
-  //     });
-  //   }
-  //   if (!user) {
-  //     return createUser(email, username, password, res);
-  //   } 
-  // });
 };

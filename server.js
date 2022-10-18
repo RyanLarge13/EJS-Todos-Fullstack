@@ -19,7 +19,7 @@ app.set("view engine", "ejs");
 
 //Incorporating the get request for the applications main index.ejs file from the server js.
 app.get("/", (req, res) => {
-  res.render("index");
+  res.status(200).render("index");
 });
 
 app.listen(port, () => console.log(`Your app is listening on port ${port} : http://localhost:8080`));
