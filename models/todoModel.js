@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 //This model is for all todo items
 const todoSchema = mongoose.Schema({
   Author: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Users',
     required: true,
   },
   Content: {
@@ -12,7 +13,8 @@ const todoSchema = mongoose.Schema({
   },
   Where: String,
   When: String,
-}, {
+}, 
+{
 	timestapms: true
 });
 

@@ -4,7 +4,9 @@ export const renderProfile = (req, res) => {
 };
 
 //Posting a todo into the database, requiring information to tie the user to their todo
-export const addTodo = (req, res) => {};
+export const addTodo = (req, res) => {
+	console.log('You are here')
+};
 
 //Updating an existing todo tied to the user from the database
 export const updateTodo = (req, res) => {};

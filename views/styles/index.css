@@ -1,6 +1,4 @@
 body {
-  height: 100vh;
-  overflow-x: hidden;
   background-image: linear-gradient(to bottom, #c21500, #ffc500, #d53369);
 }
 .intro {

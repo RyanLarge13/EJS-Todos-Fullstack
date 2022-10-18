@@ -1,6 +1,4 @@
 body {
-  height: 100vh;
-  overflow-x: hidden;
   background-image: linear-gradient(to bottom, #ac41ed, #0f0f23, #efadca);
 }
 h1 {
@@ -10,18 +8,4 @@ h1 {
 }
 form {
   margin: 2em 0;
-}
-label {
-  color: white;
-  margin: 1em 0 0.5em 0;
-  font-size: 2em;
-  align-self: flex-start;
-}
-input {
-  padding: .5em 1em;
-  width: 30vw;
-  font-size: 1.5em;
-  outline: none;
-  border: none;
-  border-radius: .25em;
 }
