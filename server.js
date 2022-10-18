@@ -4,7 +4,6 @@ import parser from "body-parser";
 import { connectDB } from "./config/db.js";
 import { loginRouter } from "./routes/loginRoutes.js";
 import { profileRouter } from "./routes/profileRoutes.js";
-import { todoRouter } from './routes/todoRoutes.js';
 dotenv.config();
 connectDB();
 
@@ -14,8 +13,8 @@ const app = express();
 //Middleware
 app.use(parser.urlencoded({ extended: true }));
 app.use(parser.json());
-app.use(loginRouter, profileRouter);
-app.use('/:me', todoRouter);
+app.use('/login', loginRouter);
+app.use('/profile', profileRouter);
 app.use(express.static("views"));
 app.set("view engine", "ejs");
 

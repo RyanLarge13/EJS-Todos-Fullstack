@@ -21,6 +21,7 @@ label {
     height: 100vh;
     padding: 10% 2em;
     justify-content: space-evenly;
+    z-index: -1;
 }
 .item {
     margin: 1em 0;
