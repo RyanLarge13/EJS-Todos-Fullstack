@@ -2,7 +2,7 @@ export const authenticateRoute = (req, res, next) => {
     if (req.isAuthenticated()) {
       return next();
     } else {
-      res.render("html/login", {
+      res.render("signin", {
         err: "You need to login first",
       });
     }
