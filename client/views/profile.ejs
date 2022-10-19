@@ -23,7 +23,8 @@
     <%- include('./partials/Header/Header.ejs') %>
   	<h1>Profile</h1>
     <h2 class="name"><%=name%>'s ToDoo's</h2>
-    <form method="post" action="profile" class="flex-col">
+    <h2><%=success%></h2>
+    <form method="post" action="/add" class="flex-col">
       <h2>Add A Todo</h2>
       <label for="title">What will you do today?</label>
       <input type="text" name="title" id="title" />
@@ -40,7 +41,9 @@
         <div class="item flex-reg"><a href="#">In Progress</a></div>
       </div>
       <div class="list" id="Todoo">
-        
+          <% todos.forEach(todo => { %>
+            <h3><%=todo.Content%></h3>
+          <% }); %>
       </div>
       <div class="list" id="Finished">
 

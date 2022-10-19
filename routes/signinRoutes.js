@@ -1,6 +1,4 @@
 import express from "express";
-import passport from 'passport';
-import '../auth/passport.js';
 import { 
     renderSignin,
     login 

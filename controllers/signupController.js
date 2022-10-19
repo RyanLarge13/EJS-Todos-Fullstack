@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
 import { Users } from "../models/userModel.js";
+import { Todos } from "../models/todoModel.js";
 
 //Global functions for handling authentication and creating Users
 const createUser = async (email, username, password, res) => {
@@ -11,24 +11,23 @@ const createUser = async (email, username, password, res) => {
     Password: hash,
   });
   newUser.save();
-  const token = generateJWTToken(newUser)
-  res.json({ token: token });
-};
-
-let generateJWTToken = (user) => {
-  return jwt.sign(user, jwtSecret, {
-    subject: user.Username,
-    expiresIn: "7d",
-    algorithm: "HS256",
+  return res.render('signin', {
+    success: 'You can now sign in!'
   });
 };
 
 export const renderSignup = (req, res) => {
   const user = req.user;
   if (user) {
-    res.status(200).render("profile", {
-      name: user.Username,
-    });
+    Todos.find({ Author: user._id }).then((todos) => {
+      return res.render('profile', {
+          todos: todos,
+          name: user.Username,
+          success: "Why are you trying to sign in?? Here is your profile fool"
+      });
+  }).catch((err) => {
+      console.log(`There is an error fetching your data: ${err}`);
+  })
   } else {
     res.status(200).render("signup");
   }
@@ -41,7 +40,7 @@ export const registerUser = async (req, res) => {
       return createUser(email, username, password, res);
     }
     if (user) {
-      res.render("signup", {
+      res.render("signin", {
         err: `There is already a user with this account. Please sign in.`,
       });
     }

@@ -1,52 +1,31 @@
-import passport from 'passport';
-import passportJwt from 'passport-jwt';
 import localStrategy from 'passport-local';
-import dotenv from "dotenv";
-import { Users } from "../models/userModel.js";
-const JWTStrategy = passportJwt.Strategy;
-const ExtractJwt = passportJwt.ExtractJwt;
+import bcrypt from 'bcryptjs';
+import { Users } from '../models/userModel.js';
 localStrategy.Strategy;
-dotenv.config();
 
-//This is a piece of middleware for authenticating users when logged in and traveling to different end points. It uses a jwt strategy to check for the token in http headers.
-passport.use(
-  new localStrategy(
-    {
-      usernameField: "username",
-      passwordField: "password",
-    },
-    (username, password, callback) => {
-      Users.findOne({ Username: username }, (err, user) => {
-        if (err) {
-          return callback(err);
-        }
-        if (!user) {
-          return callback(null, false, {
-            message: "Incorrect username or password.",
-          });
-        }
-        if (!user.validatePassword(password)) {
-          return callback(null, false, {
-            message: "You have the incorrect password",
-          });
-        }
-        return callback(null, user);
-      });
-    }
-  )
-);
+export const authorize = (passport) => {
+    passport.use(
+        new localStrategy({ usernameField: 'username' }, async (username, password, done) => {
+            await Users.findOne({ Username: username }).then( async (user) => {
+                if (!user) done(null, false, { message: 'The username you entered is not registered to an account.' });
+                await bcrypt.compare(password, user.Password).then((isMatch) => {
+                    if (isMatch) {
+                        done(null, user);
+                    } else {
+                        done(null, false, { message: 'Your password is incorrect.'});
+                    }
+                });
+            }).catch((err) => console.log(`You have an error: ${err}`));
+        })
+    );
 
-passport.use(
-  new JWTStrategy(
-    {
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: process.env.JWT_SECRET,
-    },
-    (jwtPayload, callback) => {
-      return Users.findById(jwtPayload._id)
-        .then((user) => callback(null, user))
-        .catch((err) => callback(err));
-    }
-  )
-);
+    passport.serializeUser((user, done) => {
+        done(null, user.id);
+    });
+    passport.deserializeUser((id, done) => {
+        Users.findById(id, (err, user) => {
+            done(err, user);
+        });
+    });
+};
 
