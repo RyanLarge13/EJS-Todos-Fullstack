@@ -24,14 +24,12 @@ charset="utf-8"
 <h1>Signin</h1>
 <h2><%= typeof success != 'undefined' ? success: '' %></h2>
 <h2><%= typeof err != 'undefined' ? err: '' %></h2>
-<form class="flex-col" method="post" action="/signin/password">
-<label for="email">Email</label>
-<input type="email" name="email" />
+<form class="flex-col" method="post" action="/login">
 <label for="username">Username</label>
 <input type="text" name="username" />
 <label for="password">Password</label>
 <input type="password" name="password" />
-<button type="submit" class="button">Signup</button>
+<button type="submit" class="button">Signin</button>
 </form>
 </body>
 </html>

@@ -10,12 +10,17 @@ const createUser = async (email, username, password, res) => {
     Username: username,
     Password: hash,
   });
-  const token = await jwt.sign(JSON.stringify(newUser), process.env.JWT_SECRET);
   newUser.save();
+  const token = generateJWTToken(newUser)
   res.json({ token: token });
-  //res.status(201).render("signin", {
-  //success: "Thank you for registering! You can now sign in.",
-  //});
+};
+
+let generateJWTToken = (user) => {
+  return jwt.sign(user, jwtSecret, {
+    subject: user.Username,
+    expiresIn: "7d",
+    algorithm: "HS256",
+  });
 };
 
 export const renderSignup = (req, res) => {
@@ -37,7 +42,7 @@ export const registerUser = async (req, res) => {
     }
     if (user) {
       res.render("signup", {
-        err: "There is already a user with this account.",
+        err: `There is already a user with this account. Please sign in.`,
       });
     }
   });
