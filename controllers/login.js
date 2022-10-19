@@ -55,7 +55,7 @@ export const loginRegister = async (req, res) => {
       req.login(user, { session: false }, (err) => {
       if (err) res.send(err);
       const token = generateJWTToken(user.toJSON());
-      return res.status(204).json({ token: token });
+      return res.json({ token: token });
     });
   }
   })(req, res)
