@@ -9,3 +9,9 @@ h1 {
 form {
   margin: 2em 0;
 }
+
+@media (min-width: 400px) and (max-width: 900px) {
+	h1 {
+		scale: 0.75;
+	}
+}

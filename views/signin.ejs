@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="author" content="Ryan Large" />
+<meta name="copyright" content="Ryan Large" />
+<meta name="description" content="A fullstack TodoList application." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles/signup.css" type="text/css" media="all" />
+<link rel="stylesheet" href="./styles/global.css">
+<script
+defer
+src="./scripts/signin.js"
+type="module"
+charset="utf-8"
+></script>
+<title>Node.js</title>
+</head>
+<body class="flex-col">
+<%- include('./partials/Header/Header.ejs') %>
+<h1>Signin</h1>
+<h2><%= typeof success != 'undefined' ? success: '' %></h2>
+<h2><%= typeof err != 'undefined' ? err: '' %></h2>
+<form class="flex-col" method="post" action="/signin/password">
+<label for="email">Email</label>
+<input type="email" name="email" />
+<label for="username">Username</label>
+<input type="text" name="username" />
+<label for="password">Password</label>
+<input type="password" name="password" />
+<button type="submit" class="button">Signup</button>
+</form>
+</body>
+</html>
