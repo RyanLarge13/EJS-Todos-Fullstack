@@ -2,12 +2,12 @@ import express from "express";
 import dotenv from "dotenv";
 import parser from "body-parser";
 import passport from "passport";
-import session from 'express-session';
-import cors from 'cors';
+import session from "express-session";
+import cors from "cors";
 import { connectDB } from "./config/db.js";
 import { signupRouter } from "./routes/signupRoute.js";
-import { signinRouter } from './routes/signinRoutes.js';
-import { authorize } from './auth/passport.js';
+import { signinRouter } from "./routes/signinRoutes.js";
+import { authorize } from "./auth/passport.js";
 import { todoRouter } from "./routes/todoRoutes.js";
 authorize(passport);
 dotenv.config();
@@ -17,16 +17,18 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 //Middleware
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: true,
-  saveUninitialized: true,
-}));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 app.use(cors());
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
-app.set('views', './client/views');
+app.set("views", "./client/views");
 app.use(express.static("./client/views"));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -43,6 +45,10 @@ app.get("/", (req, res) => {
   } else {
     res.status(200).render("index");
   }
+});
+
+app.get("/logout", (req, res) => {
+  res.json({ message: "You are logged out" });
 });
 
 app.listen(port, () =>
