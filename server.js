@@ -48,7 +48,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-  res.json({ message: "You are logged out" });
+  return res.status(200).json({ message: "You are logged out" });
 });
 
 app.listen(port, () =>

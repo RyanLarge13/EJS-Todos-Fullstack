@@ -10,13 +10,14 @@ const handleLogout = async (e) => {
     method: "GET",
   })
     .then((res) => {
-      res.json();
-    })
-    .then((content) => {
       const message = document.querySelector(".json");
-      message.innerText = content;
+      message.innerText = JSON.stringify(res);
+    })
+    .catch((err) => {
+      const message = document.querySelector(".json");
+      message.innerText = err;
     });
 };
 
-document.querySelector(".logout", handleLogout);
+document.querySelector(".logout").addEventListener("click", handleLogout);
 document.querySelector(".show-form").addEventListener("click", showForm);
