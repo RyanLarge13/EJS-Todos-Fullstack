@@ -10,8 +10,11 @@ const handleLogout = async (e) => {
     method: "GET",
   })
     .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
       const message = document.querySelector(".json");
-      message.innerText = JSON.stringify(res);
+      message.innerText = data.message;
     })
     .catch((err) => {
       const message = document.querySelector(".json");
