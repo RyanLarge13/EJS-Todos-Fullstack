@@ -1,0 +1,57 @@
+.nav-toggle {
+  position: fixed;
+  top: 2.5%;
+  right: 5%;
+  z-index: 998;
+  width: 50px;
+  height: 50px;
+}
+.nav-toggle span {
+  width: 100%;
+  position: absolute;
+  height: 3px;
+  border-radius: 1em;
+  background-color: #000;
+  transition: 250ms ease-out;
+}
+.nav-toggle span:nth-child(1) {
+  top: 0;
+}
+.nav-toggle span:nth-child(2) {
+  top: 20%;
+}
+.nav-toggle span:nth-child(1) {
+  top: 40%;
+}
+nav {
+  background-color: #fff;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  transition: 750ms ease-out;
+  z-index: 997;
+}
+nav li {
+  list-style-type: none;
+  margin: 3em 0;
+}
+nav a {
+  padding: 2em;
+}
+
+.nav-toggle span:nth-child(1).open {
+  top: 15%;
+  transform: rotate(45deg);
+}
+.nav-toggle span:nth-child(2).open {
+  opacity: 0;
+}
+.nav-toggle span:nth-child(3).open {
+  top: 15%;
+  transform: rotate(-45deg);
+}
+nav.open {
+  right: 0;
+}

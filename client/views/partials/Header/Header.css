@@ -9,7 +9,7 @@ header {
   background-color: #fff;
 }
 header::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-color: #000;
@@ -18,23 +18,23 @@ header::after {
   filter: blur(10px);
 }
 header::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-color: #000;
   z-index: -1;
-  transform: rotate(1.25deg) translateX(1em);
+  transform: rotate(1.25deg) translateX(-0.25em);
   filter: blur(10px);
 }
 .logo {
   font-size: 2.25em;
   margin-left: 1em;
   font-weight: 700;
-  background: -webkit-linear-gradient(#ffc500,#d53369);
+  background: -webkit-linear-gradient(#ffc500, #d53369);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .logo a {
-	text-decoration: none;
-	color: #000;
+  text-decoration: none;
+  color: #000;
 }

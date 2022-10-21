@@ -1,58 +1,74 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="Ryan Large" />
-    <meta name="copyright" content="Ryan Large" />
-    <meta name="description" content="A fullstack TodoList application." />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/global.css">
-    <link rel="stylesheet" href="./styles/profile.css" type="text/css" media="all" />
-    <script
-      defer
-      src="./scripts/profile.js"
-      type="module"
-      charset="utf-8"
-    ></script>
-    <title>Node.js</title>
-  </head>
-  <body class="flex-col">
-    <%- include('./partials/Header/Header.ejs') %>
-  	<h1>Profile</h1>
-    <h2 class="name"><%=name%>'s ToDoo's</h2>
-    <h2><%=success%></h2>
-    <form method="post" action="/add" class="flex-col">
-      <h2>Add A Todo</h2>
-      <label for="title">What will you do today?</label>
-      <input type="text" name="title" id="title" />
-      <label for="time">What time?</label>
-      <input type="datetime" name="time" id="time" />
-      <label for="location">Where?</label>
-      <input type="text" name="location" id="location" />
-      <button type="submit" class="button">Add Todo</button>
-    </form>
-      <div class="side-menu flex-col">
-        <div class="item flex-reg"><a href="#">Todoo</a></div>
-        <div class="item flex-reg"><a href="#">Finished</a></div>
-        <div class="item flex-reg"><a href="#">Missed</a></div>
-        <div class="item flex-reg"><a href="#">In Progress</a></div>
-      </div>
-      <div class="list" id="Todoo">
-          <% todos.forEach(todo => { %>
-            <h3><%=todo.Content%></h3>
-          <% }); %>
-      </div>
-      <div class="list" id="Finished">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="author" content="Ryan Large" />
+<meta name="copyright" content="Ryan Large" />
+<meta name="description" content="A fullstack TodoList application." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles/global.css">
+<link rel="stylesheet" href="./styles/profile.css" type="text/css" media="all" />
+<script defer type="module" src="./scripts/global.js"></script>
+<script
+defer
+src="./scripts/profile.js"
+type="module"
+charset="utf-8"
+></script>
+<title>Node.js</title>
+</head>
+<body>
+<%- include('./partials/Header/Header.ejs') %>
+<%- include('./partials/Nav/Nav.ejs') %>
+<h1>Profile</h1>
+<h2 class="name"><%=name%>'s ToDoo's</h2>
+<h2><%=success%></h2>
+<h2 class="show-form">Add A Todo</h2>
+<form method="post" action="/add" class="flex-col profile-form">
+<label for="title">What will you do today?</label>
+<input type="text" name="title" id="title" />
+<label for="time">What time?</label>
+<input type="datetime" name="time" id="time" />
+<label for="location">Where?</label>
+<input type="text" name="location" id="location" />
+<button type="submit" class="button">Add Todo</button>
+</form>
+<div class="side-menu flex-col">
+<div class="item flex-reg">
+<a href="#">Todoo's</a>
+</div>
+<div class="item flex-reg">
+<a href="#">Finished</a>
+</div>
+<div class="item flex-reg">
+<a href="#">Missed</a>
+</div>
+<div class="item flex-reg">
+<a href="#">In Progress</a>
+</div>
+</div>
+<div class="list" id="Todoo">
+<% todos.forEach(todo => {
+%>
+<div class="todo">
+<h3><%=todo.Content%></h3>
+<h4><%=todo.Where%></h4>
+<h5><%=todo.When%></h5>
+</div>
+<%
+}); %>
+</div>
+<div class="list" id="Finished">
 
-      </div>
-      <div class="list" id="Missed">
+</div>
+<div class="list" id="Missed">
 
-      </div>
-      <div class="list" id="In Progress">
+</div>
+<div class="list" id="In Progress">
 
-      </div>
-  </body>
-  </html>
+</div>
+</body>
+</html>

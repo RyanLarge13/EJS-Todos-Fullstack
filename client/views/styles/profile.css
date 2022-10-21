@@ -1,41 +1,144 @@
 body {
-    background-image: linear-gradient(to bottom, #00F260, #0575E6);
+  background-image: linear-gradient(to bottom, #00f260, #0575e6);
 }
 h1 {
-    font-size: 4em;
-    margin-bottom: 1em;
+  font-size: 4em;
+  margin-bottom: 1em;
 }
 .name {
-    position: absolute;
-    right: 5%;
-    top: 15%;
-    font-size: 2em;
+  position: absolute;
+  right: 5%;
+  top: 15%;
+  font-size: 2em;
 }
 label {
-    color: #000;
+  color: #000;
 }
 .side-menu {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    padding: 10% 2em;
-    justify-content: space-evenly;
-    z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  padding: 10% 2em;
+  justify-content: space-evenly;
+  z-index: -1;
 }
 .item {
-    margin: 1em 0;
-    min-width: 200px;
-    border-radius: .25em;
-    background-image: linear-gradient(45deg, #fc4a1a, #f7b733);
-    box-shadow: .25em .25em .5em 0 #000;
-    transition: 100ms ease-in;
+  margin: 1em 0;
+  min-width: 200px;
+  border-radius: 0.25em;
+  background-image: linear-gradient(45deg, #fc4a1a, #f7b733);
+  box-shadow: 0.25em 0.25em 0.5em 0 #000;
+  transition: 100ms ease-in;
 }
 .item a {
-    padding: 1em 2em;
-    font-weight: 600;
-    font-size: 1.5em;
+  padding: 1em 2em;
+  font-weight: 600;
+  font-size: 1.5em;
 }
 .item:hover {
-    scale: 1.025;
+  scale: 1.025;
+}
+
+@media (min-width: 400px) and (max-width: 900px) {
+  h1 {
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+  }
+  h2 {
+    text-align: center;
+    margin: 0.5em 0;
+  }
+  .name {
+    position: unset;
+  }
+  .profile-form {
+    opacity: 0;
+    display: none;
+    transition: 250ms ease-in-out;
+  }
+  .profile-form.show {
+    opacity: 1;
+    display: flex;
+  }
+  .side-menu {
+    display: none;
+  }
+  .list {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 50vh;
+    overflow-y: auto;
+  }
+  .todo {
+  	padding: 0.5em;
+  	position: relative;
+    width: 90%;
+    min-height: max-content;
+    max-height: max-content;
+    margin: 1em 0;
+    border-radius: 0.25em;
+    background-color: #fff;
+    animation-name: scale;
+    animation-duration: 500ms;
+    box-shadow: 0 0.25em 0.5em 0 #000;
+    transition: 500ms ease-in-out;
+  }
+ .todo h5 {
+ 	position: absolute;
+ 	bottom: 2.5%;
+ 	right: 2.5%;
+ }
+  .todo:nth-child(6n + 1) {
+    background-image: linear-gradient(
+      45deg,
+      rgb(102, 241, 60),
+      rgb(63, 255, 239)
+    );
+  }
+  .todo:nth-child(6n + 2) {
+    background-image: linear-gradient(
+      45deg,
+      rgb(241, 60, 60),
+      rgb(255, 149, 63)
+    );
+  }
+  .todo:nth-child(6n + 3) {
+    background-image: linear-gradient(
+      45deg,
+      rgb(205, 60, 241),
+      rgb(255, 63, 153)
+    );
+  }
+  .todo:nth-child(6n + 4) {
+    background-image: linear-gradient(
+      45deg,
+      rgb(241, 238, 60),
+      rgb(153, 159, 252)
+    );
+  }
+  .todo:nth-child(6n + 5) {
+    background-image: linear-gradient(
+      45deg,
+      rgb(54, 248, 158),
+      rgb(63, 249, 255)
+    );
+  }
+  .todo:nth-child(6n + 6) {
+    background-image: linear-gradient(
+      45deg,
+      rgb(253, 58, 221),
+      rgb(230, 241, 241)
+    );
+  }
+ @keyframes scale {
+    0% {
+      scale: 0;
+    }
+    100% {
+      scale: 1;
+    }
 }
