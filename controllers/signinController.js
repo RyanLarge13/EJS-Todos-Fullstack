@@ -48,3 +48,10 @@ export const login = (req, res, next) => {
     }
   })(req, res, next);
 };
+
+export const logout = (req, res) => {
+  req.logout((err) => {
+    if (err) next(err);
+    res.redirect("/");
+  });
+};

@@ -15,13 +15,26 @@ label {
   color: #000;
 }
 .side-menu {
-  position: absolute;
+  position: fixed;
+  width: 100vw;
+  height: 110vh;
+  background-color: rgba(0,0,0,0.7);
   left: 0;
   top: 0;
   height: 100vh;
   padding: 10% 2em;
   justify-content: space-evenly;
-  z-index: -1;
+  z-index: 998;
+}
+.side-menu-toggle {
+	position: fixed;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 2%;
+	z-index: 999;
+}
+.side-menu-toggle i {
+	font-size: 1.5em;
 }
 .item {
   margin: 1em 0;
@@ -30,14 +43,27 @@ label {
   background-image: linear-gradient(45deg, #fc4a1a, #f7b733);
   box-shadow: 0.25em 0.25em 0.5em 0 #000;
   transition: 100ms ease-in;
+  animation-name: scale;
+  animation-duration: 250ms;
 }
-.item a {
+@keyframes scale {
+	0% {
+		scale: 0;
+	}
+	100% {
+		scale: 1;
+	}
+}
+.item p {
   padding: 1em 2em;
   font-weight: 600;
   font-size: 1.5em;
 }
 .item:hover {
   scale: 1.025;
+}
+.list {
+	display: none;
 }
 
 @media (min-width: 400px) and (max-width: 900px) {
@@ -64,9 +90,12 @@ label {
   .side-menu {
     display: none;
   }
+ .side-menu.display {
+ 	display: flex;
+ }
   .list {
     margin-top: 1em;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;

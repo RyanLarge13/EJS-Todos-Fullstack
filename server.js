@@ -9,6 +9,7 @@ import { signupRouter } from "./routes/signupRoute.js";
 import { signinRouter } from "./routes/signinRoutes.js";
 import { authorize } from "./auth/passport.js";
 import { todoRouter } from "./routes/todoRoutes.js";
+import { profileRouter } from "./routes/profileRoutes.js";
 authorize(passport);
 dotenv.config();
 connectDB();
@@ -32,7 +33,7 @@ app.set("views", "./client/views");
 app.use(express.static("./client/views"));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use("/", signupRouter, signinRouter, todoRouter);
+app.use("/", signupRouter, signinRouter, todoRouter, profileRouter);
 
 //Incorporating the get request for the applications main index.ejs file from server js.
 app.get("/", (req, res) => {
@@ -45,10 +46,6 @@ app.get("/", (req, res) => {
   } else {
     res.status(200).render("index");
   }
-});
-
-app.get("/logout", (req, res) => {
-  return res.status(200).json({ message: "You are logged out" });
 });
 
 app.listen(port, () =>

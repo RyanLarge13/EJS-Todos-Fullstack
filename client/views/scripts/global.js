@@ -1,1 +1,1 @@
-import { toggleNav } from '../partials/Nav/Nav.js'
+import { toggleNav, logout} from '../partials/Nav/Nav.js'

@@ -18,6 +18,7 @@ src="./scripts/profile.js"
 type="module"
 charset="utf-8"
 ></script>
+<script defer src="https://kit.fontawesome.com/a673862905.js" crossorigin="anonymous"></script>
 <title>Node.js</title>
 </head>
 <body>
@@ -36,18 +37,29 @@ charset="utf-8"
 <input type="text" name="location" id="location" />
 <button type="submit" class="button">Add Todo</button>
 </form>
+<div class="side-menu-toggle">
+<i class="fa-solid fa-sliders"></i>
+</div>
 <div class="side-menu flex-col">
 <div class="item flex-reg">
-<a href="#">Todoo's</a>
+<p>
+Todoo
+</p>
 </div>
 <div class="item flex-reg">
-<a href="#">Finished</a>
+<p>
+Finished
+</p>
 </div>
 <div class="item flex-reg">
-<a href="#">Missed</a>
+<p>
+Missed
+</p>
 </div>
 <div class="item flex-reg">
-<a href="#">In Progress</a>
+<p>
+In Progress
+</p>
 </div>
 </div>
 <div class="list" id="Todoo">
@@ -62,15 +74,13 @@ charset="utf-8"
 }); %>
 </div>
 <div class="list" id="Finished">
-
+<h2>Finished</h2>
 </div>
 <div class="list" id="Missed">
-
+<h2>Missed</h>
 </div>
 <div class="list" id="In Progress">
-
+<h2>In Progress</h2>
 </div>
-<h1 class="json">This will change</h1>
-<button class="logout button">Logout</button>
 </body>
 </html>
