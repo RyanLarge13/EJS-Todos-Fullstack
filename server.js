@@ -44,7 +44,10 @@ app.get("/", (req, res) => {
       welcome: `Welcome back ${user.Username}`,
     });
   } else {
-    res.status(200).render("index");
+    res.status(200).render("index", {
+    	profile: false, 
+    	welcome: 'Please sign in, or signup for a new account to make your very own custom todo list!!'
+    });
   }
 });
 
