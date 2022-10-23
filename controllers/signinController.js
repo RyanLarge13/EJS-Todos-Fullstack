@@ -1,20 +1,18 @@
 import passport from "passport";
 import { Todos } from "../models/todoModel.js";
+import { FinishedTodos } from "../models/finishedTodosModel.js";
 
-export const renderSignin = (req, res) => {
+export const renderSignin = async (req, res) => {
   const user = req.user;
   if (user) {
-    Todos.find({ Author: user._id })
-      .then((todos) => {
-        return res.render("profile", {
-          todos: todos,
-          name: user.Username,
-          success: "You are already signed in.",
-        });
-      })
-      .catch((err) => {
-        console.log(`There is an error fetching your data: ${err}`);
-      });
+    const todos = await Todos.find({ Author: user._id });
+    const doneTodos = await FinishedTodos.find({ Author: user._id });
+    return res.render("profile", {
+      todos: todos,
+      finishedTodos: doneTodos,
+      name: user.Username,
+      success: "You are already signed in.",
+    });
   }
   if (!user) {
     return res.render("signin");
@@ -31,19 +29,16 @@ export const login = (req, res, next) => {
       });
     }
     if (user) {
-      req.logIn(user, (err) => {
+      req.logIn(user, async (err) => {
         if (err) return next(err);
-        Todos.find({ Author: user._id })
-          .then((todos) => {
-            return res.render("profile", {
-              todos: todos,
-              name: user.Username,
-              success: "You are now signed in",
-            });
-          })
-          .catch((err) => {
-            console.log(`There is an error fetching your data: ${err}`);
-          });
+        const todos = await Todos.find({ Author: user._id });
+        const doneTodos = await FinishedTodos.find({ Author: user._id });
+        return res.render("profile", {
+          todos: todos,
+          finishedTodos: doneTodos,
+          name: user.Username,
+          success: "You are now signed in",
+        });
       });
     }
   })(req, res, next);

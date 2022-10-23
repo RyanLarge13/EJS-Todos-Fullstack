@@ -30,7 +30,7 @@ nav {
   position: fixed;
   top: 0;
   right: -100%;
-  transition: 750ms ease-out;
+  transition: 250ms ease-out;
   z-index: 997;
 }
 nav li {

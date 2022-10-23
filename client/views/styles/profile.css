@@ -5,6 +5,9 @@ h1 {
   font-size: 4em;
   margin-bottom: 1em;
 }
+.list-indicator {
+	text-align: left;
+}
 .name {
   position: absolute;
   right: 5%;
@@ -28,13 +31,15 @@ label {
 }
 .side-menu-toggle {
 	position: fixed;
-	top: 50%;
-	transform: translateY(-50%);
-	left: 2%;
+	bottom: 5%;
+	left: 5%;
 	z-index: 999;
 }
 .side-menu-toggle i {
-	font-size: 1.5em;
+	font-size: 2em;
+}
+.side-menu-toggle.display {
+	color: #FFFFFF;
 }
 .item {
   margin: 1em 0;
@@ -65,6 +70,9 @@ label {
 .list {
 	display: none;
 }
+#Todoo {
+	display: flex;
+} 
 
 @media (min-width: 400px) and (max-width: 900px) {
   h1 {
@@ -95,7 +103,6 @@ label {
  }
   .list {
     margin-top: 1em;
-    display: none;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -157,6 +164,75 @@ label {
     );
   }
   .todo:nth-child(6n + 6) {
+    background-image: linear-gradient(
+      45deg,
+      rgb(253, 58, 221),
+      rgb(230, 241, 241)
+    );
+  }
+ @keyframes scale {
+    0% {
+      scale: 0;
+    }
+    100% {
+      scale: 1;
+    }
+}
+  .finished {
+  	padding: 0.5em;
+  	position: relative;
+    width: 90%;
+    min-height: max-content;
+    max-height: max-content;
+    margin: 1em 0;
+    border-radius: 0.25em;
+    background-color: #fff;
+    animation-name: scale;
+    animation-duration: 500ms;
+    box-shadow: 0 0.25em 0.5em 0 #000;
+    transition: 500ms ease-in-out;
+  }
+ .finished h5 {
+ 	position: absolute;
+ 	bottom: 2.5%;
+ 	right: 2.5%;
+ }
+  .finished:nth-child(6n + 1) {
+    background-image: linear-gradient(
+      45deg,
+      rgb(102, 241, 60),
+      rgb(63, 255, 239)
+    );
+  }
+  .finished:nth-child(6n + 2) {
+    background-image: linear-gradient(
+      45deg,
+      rgb(241, 60, 60),
+      rgb(255, 149, 63)
+    );
+  }
+  .finished:nth-child(6n + 3) {
+    background-image: linear-gradient(
+      45deg,
+      rgb(205, 60, 241),
+      rgb(255, 63, 153)
+    );
+  }
+  .finished:nth-child(6n + 4) {
+    background-image: linear-gradient(
+      45deg,
+      rgb(241, 238, 60),
+      rgb(153, 159, 252)
+    );
+  }
+  .finished:nth-child(6n + 5) {
+    background-image: linear-gradient(
+      45deg,
+      rgb(54, 248, 158),
+      rgb(63, 249, 255)
+    );
+  }
+  .finished:nth-child(6n + 6) {
     background-image: linear-gradient(
       45deg,
       rgb(253, 58, 221),

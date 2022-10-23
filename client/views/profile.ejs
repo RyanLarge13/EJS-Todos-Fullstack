@@ -62,6 +62,7 @@ In Progress
 </p>
 </div>
 </div>
+<h2 class="list-indicator">Todoo</h2>
 <div class="list" id="Todoo">
 <% todos.forEach(todo => {
 %>
@@ -74,13 +75,19 @@ In Progress
 }); %>
 </div>
 <div class="list" id="Finished">
-<h2>Finished</h2>
+<% finishedTodos.forEach(todo => {
+%>
+<div class="finished">
+<h3><%=todo.Content%></h3>
+<h4><%=todo.Where%></h4>
+<h5><%=todo.When%></h5>
+</div>
+<%
+}); %>
 </div>
 <div class="list" id="Missed">
-<h2>Missed</h>
 </div>
 <div class="list" id="In Progress">
-<h2>In Progress</h2>
 </div>
 </body>
 </html>

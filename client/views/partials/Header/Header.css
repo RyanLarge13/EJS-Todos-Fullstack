@@ -1,5 +1,5 @@
 header {
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100vw;
   height: 7.5vh;
@@ -7,24 +7,7 @@ header {
   justify-content: flex-start;
   align-items: center;
   background-color: #fff;
-}
-header::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: #000;
-  z-index: -1;
-  transform: rotate(-1.25deg) translateX(-1em);
-  filter: blur(10px);
-}
-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: #000;
-  z-index: -1;
-  transform: rotate(1.25deg) translateX(-0.25em);
-  filter: blur(10px);
+  box-shadow: 0 0.25em 0.5em 0 #000;
 }
 .logo {
   font-size: 2.25em;
