@@ -16,7 +16,7 @@ const finishedSchema = mongoose.Schema(
     When: String,
   },
   {
-    timestapms: true,
+    timestamps: true,
   }
 );
 
