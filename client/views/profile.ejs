@@ -24,9 +24,8 @@ charset="utf-8"
 <body>
 <%- include('./partials/Header/Header.ejs') %>
 <%- include('./partials/Nav/Nav.ejs') %>
-<h1>Profile</h1>
-<h2 class="name"><%=name%>'s ToDoo's</h2>
-<h2><%=success%></h2>
+<h1 class="name"><%=name%>'s <br />ToDoo's</h1>
+<h2 class="success"><%=success%></h2>
 <h2 class="show-form">Add A Todo</h2>
 <form method="post" action="/add" class="flex-col profile-form">
 <label for="title">What will you do today?</label>

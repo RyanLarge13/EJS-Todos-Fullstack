@@ -24,7 +24,7 @@ charset="utf-8"
 <%- include('./partials/Header/Header.ejs') %>
 <h1>Signup</h1>
 <h2><%= typeof success != 'undefined' ? success: '' %></h2>
-<h2><%= typeof err != 'undefined' ? err: '' %></h2>
+<h2 class="err"><%= typeof err != 'undefined' ? err: '' %></h2>
 <form class="flex-col" method="post" action="/signup">
 <label for="email">Email</label>
 <input type="email" name="email" id="email" />

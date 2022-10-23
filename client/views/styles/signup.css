@@ -4,14 +4,19 @@ body {
 h1 {
   color: white;
   font-size: 4em;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 form {
   margin: 2em 0;
 }
+.err {
+  text-align: center;
+  color: rgba(200, 0, 0, 0.8);
+  margin: 0 1em;
+}
 
 @media (min-width: 400px) and (max-width: 900px) {
-	h1 {
-		scale: 0.75;
-	}
+  h1 {
+    scale: 0.75;
+  }
 }

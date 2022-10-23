@@ -2,6 +2,11 @@ const baseUrl = "http://localhost:8080/";
 const todos = document.querySelectorAll(".todo");
 const doneTodos = document.querySelectorAll(".finished");
 const sideMenuBtns = document.querySelectorAll(".item");
+const success = document.querySelector(".success");
+
+setTimeout(() => {
+  success.style.opacity = "0";
+}, 2500);
 
 const showForm = (e) => {
   e.preventDefault();

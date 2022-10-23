@@ -15,6 +15,10 @@ body {
 .intro p {
   margin: 1em 0;
 }
+.welcome {
+  margin: 0 1em 2em 1em;
+  text-align: center;
+}
 
 @media (min-width: 400px) and (max-width: 900px) {
   .intro h2 {
