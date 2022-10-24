@@ -29,18 +29,11 @@ export const addTodo = async (req, res) => {
 
 export const deleteTodo = async (req, res) => {
   const user = req.user;
-  const Todo = await Todos.findOne({
+  const newFinishedTodo = await FinishedTodos.create({
     Author: user._id,
     Content: req.params.todo,
-  })
-    .then(async (todo) => {
-      const newFinishedTodo = await FinishedTodos.create({
-        Author: user._id,
-        Content: req.params.todo,
-      });
-      newFinishedTodo.save();
-    })
-    .catch((err) => console.log(err));
+  });
+  newFinishedTodo.save();
   await Todos.findOneAndDelete({
     Author: user._id,
     Content: req.params.todo,
