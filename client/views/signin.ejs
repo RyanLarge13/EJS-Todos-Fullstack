@@ -24,7 +24,7 @@ charset="utf-8"
 <h1>Signin</h1>
 <h2><%= typeof success != 'undefined' ? success: '' %></h2>
 <h2 class="err"><%= typeof err != 'undefined' ? err: '' %></h2>
-<form class="flex-col" method="post" action="/login">
+<form class="flex-col" method="post" action="/login" autocomplete="off">
 <label for="username">Username</label>
 <input type="text" name="username" />
 <label for="password">Password</label>
