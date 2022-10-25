@@ -68,7 +68,12 @@ In Progress
 <div class="todo">
 <h3><%=todo.Content%></h3>
 <h4><%=todo.Where%></h4>
+<% if (todo.When !== '') {
+%>
+<h5>Complete by <%=todo.When%></h5>
+<%} else { %>
 <h5><%=todo.When%></h5>
+<%} %>
 </div>
 <%
 }); %>
@@ -79,7 +84,7 @@ In Progress
 <div class="finished">
 <h3><%=todo.Content%></h3>
 <h4><%=todo.Where%></h4>
-<h5>Completed on <%=todo.createdAt%></h5>
+<h5>Completed on <%=todo.createdAt.toLocaleDateString()%></h5>
 </div>
 <%
 }); %>
