@@ -11,7 +11,7 @@ export const addTodo = async (req, res) => {
   }
   const newTodo = new Todos({
     Author: user,
-    Content: title,
+    Content: title.trim(),
     Where: location,
     When: time,
   });
@@ -33,19 +33,15 @@ export const deleteTodo = async (req, res) => {
     Author: user._id,
     Content: req.params.todo,
   });
-  newFinishedTodo.save();
-  await Todos.findOneAndDelete({
+  await newFinishedTodo.save();
+  await Todos.deleteOne({
     Author: user._id,
     Content: req.params.todo,
-  }).then((info, err) => {
-    if (err)
-      console.log(
-        `There was an error processing your request to delete a todo: ${err}`
-      );
-    else {
-      res.status(200).send();
-    }
-  });
+  })
+    .then((info) => {
+      return res.status(200).send();
+    })
+    .catch((err) => console.log(err));
 };
 
 export const removeTodo = async (req, res) => {

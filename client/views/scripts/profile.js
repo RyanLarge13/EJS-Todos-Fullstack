@@ -1,4 +1,5 @@
 const baseUrl = "https://ejs-todos.onrender.com/";
+//const baseUrl = "http://localhost:8080/";
 const todos = document.querySelectorAll(".todo");
 const doneTodos = document.querySelectorAll(".finished");
 const sideMenuBtns = document.querySelectorAll(".item");
@@ -11,16 +12,31 @@ setTimeout(() => {
 const showForm = (e) => {
   e.preventDefault();
   const profileForm = document.querySelector(".profile-form");
-  profileForm.classList.toggle("show");
+  profileForm.classList.add("show");
+  setTimeout(() => {
+    profileForm.style.opacity = "1";
+  }, 10);
+  document.querySelector(".fa-circle-xmark").addEventListener("click", () => {
+    profileForm.style.opacity = "0";
+    setTimeout(() => {
+      profileForm.classList.remove("show");
+    }, 500);
+  });
 };
 
 const deleteTodo = async (e, param) => {
   const todo = e.target.parentElement;
-  const title = todo.firstElementChild.innerHTML;
+  const title = todo.firstElementChild.innerText;
   await fetch(`${baseUrl}${param}${title}`, {
     method: "DELETE",
   }).then((res) => {
-    return (window.location = `${baseUrl}profile`);
+    if (param === "remove/") {
+      return (todo.style.opacity = "0");
+    }
+    setTimeout(function () {
+      window.location = `${baseUrl}profile`;
+    }, 500);
+    todo.style.opacity = "0";
   });
 };
 

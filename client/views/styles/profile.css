@@ -14,6 +14,11 @@ h1 {
 	transition: 250ms ease-in-out;
 	background-color: rgba(0, 200, 0, 0.7);
 }
+.show-form {
+	max-width: max-content;
+	margin: 0 auto;
+	scale: 0.75;
+}
 label {
   color: #000;
 }
@@ -26,14 +31,14 @@ label {
   top: 0;
   height: 100vh;
   padding: 10% 2em;
-  justify-content: space-evenly;
-  z-index: 998;
+  justify-content: center;
+  z-index: 996;
 }
 .side-menu-toggle {
 	position: fixed;
 	bottom: 5%;
 	left: 5%;
-	z-index: 999;
+	z-index: 997;
 }
 .side-menu-toggle i {
 	font-size: 2em;
@@ -42,7 +47,7 @@ label {
 	color: #FFFFFF;
 }
 .item {
-  margin: 1em 0;
+  margin: 2em 0;
   min-width: 200px;
   border-radius: 0.25em;
   background-image: linear-gradient(45deg, #fc4a1a, #f7b733);
@@ -87,14 +92,32 @@ label {
     position: unset;
   }
   .profile-form {
-    opacity: 0;
+  	position: fixed;
+  	top: 0;
+  	width: 100vw;
+  	height: 100vh;
+  	z-index: 996;
     display: none;
-    transition: 250ms ease-in-out;
+    opacity: 0;
+    transition: 500ms ease-in-out;
+    background-image: linear-gradient(45deg, #4CB8C4, #fc5c7d);
   }
+ .profile-form label {
+ 	align-self: center;
+ }
+.profile-form input {
+	box-shadow: 0 0.25em 0.5em 0 #2F2F2F;
+}
   .profile-form.show {
-    opacity: 1;
     display: flex;
   }
+ .fa-circle-xmark {
+ 	position: absolute;
+ 	font-size: 1.5em;
+ 	top: 2.5%;
+ 	left: 7.5%;
+ 	color: #000;
+ }
   .side-menu {
     display: none;
   }

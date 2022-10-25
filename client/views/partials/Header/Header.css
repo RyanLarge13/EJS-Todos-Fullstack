@@ -9,6 +9,7 @@ header {
   align-items: center;
   background-color: #fff;
   box-shadow: 0 0.25em 0.5em 0 #000;
+  z-index: 995;
 }
 .logo {
   font-size: 2.25em;

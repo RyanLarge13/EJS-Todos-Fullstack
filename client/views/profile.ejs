@@ -26,8 +26,9 @@ charset="utf-8"
 <%- include('./partials/Nav/Nav.ejs') %>
 <h1 class="name"><%=name%>'s <br />ToDoo's</h1>
 <h2 class="success"><%=success%></h2>
-<h2 class="show-form">Add A Todo</h2>
+<h2 class="show-form button">Add A Todo</h2>
 <form method="post" action="/add" class="flex-col profile-form">
+<i class="fa-regular fa-circle-xmark"></i>
 <label for="title">What will you do today?</label>
 <input type="text" name="title" id="title" />
 <label for="time">What time?</label>
@@ -48,16 +49,6 @@ Todoo
 <div class="item flex-reg">
 <p>
 Finished
-</p>
-</div>
-<div class="item flex-reg">
-<p>
-Missed
-</p>
-</div>
-<div class="item flex-reg">
-<p>
-In Progress
 </p>
 </div>
 </div>
@@ -88,10 +79,6 @@ In Progress
 </div>
 <%
 }); %>
-</div>
-<div class="list" id="Missed">
-</div>
-<div class="list" id="In Progress">
 </div>
 </body>
 </html>
