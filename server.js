@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import parser from "body-parser";
 import passport from "passport";
 import session from "express-session";
+import MongoStore from "connect-mongo";
 import cors from "cors";
 import { connectDB } from "./config/db.js";
 import { signupRouter } from "./routes/signupRoute.js";
@@ -23,6 +24,9 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: true,
+    store: MongoStore.create({
+    	mongoUrl: process.env.MONGODB_URI 
+    }),
   })
 );
 app.use(cors());
@@ -45,12 +49,13 @@ app.get("/", (req, res) => {
     });
   } else {
     res.status(200).render("index", {
-    	profile: false, 
-    	welcome: 'Please sign in, or signup for a new account to make your very own custom todo list!!'
+      profile: false,
+      welcome:
+        "Please sign in, or signup for a new account to make your very own custom todo list!!",
     });
   }
 });
 
-app.listen(port, '0.0.0.0', () =>
+app.listen(port, "0.0.0.0", () =>
   console.log(`Your app is listening on port ${port} : http://localhost:8080`)
 );
