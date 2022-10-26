@@ -57,6 +57,7 @@ Finished
 <% todos.forEach(todo => {
 %>
 <div class="todo">
+	<p class="hidden"><%=todo._id%></p>
 <h3><%=todo.Content%></h3>
 <h4><%=todo.Where%></h4>
 <% if (todo.When !== '') {
@@ -73,6 +74,10 @@ Finished
 <% finishedTodos.forEach(todo => {
 %>
 <div class="finished">
+	<p class="hidden">
+		<%=todo._id%>
+	</p>
+
 <h3><%=todo.Content%></h3>
 <h4><%=todo.Where%></h4>
 <h5>Completed on <%=todo.createdAt.toLocaleDateString()%></h5>

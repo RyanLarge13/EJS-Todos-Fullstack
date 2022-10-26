@@ -1,5 +1,5 @@
 const baseUrl = "https://ejs-todos.onrender.com/";
-//const baseUrl = "http://localhost:8080/";
+// const baseUrl = "http://localhost:8080/";
 const todos = document.querySelectorAll(".todo");
 const doneTodos = document.querySelectorAll(".finished");
 const sideMenuBtns = document.querySelectorAll(".item");
@@ -26,15 +26,16 @@ const showForm = (e) => {
 
 const deleteTodo = async (e, param) => {
   const todo = e.target.parentElement;
-  const title = todo.firstElementChild.innerText;
-  await fetch(`${baseUrl}${param}${title}`, {
+  const id = todo.firstElementChild.textContent;
+  const title = todo.children[1].textContent;
+  await fetch(`${baseUrl}${param}${id}/${title}`, {
     method: "DELETE",
   }).then((res) => {
     if (param === "remove/") {
       return (todo.style.opacity = "0");
     }
     setTimeout(function () {
-      window.location = `${baseUrl}profile`;
+      // window.location = `${baseUrl}profile`;
     }, 500);
     todo.style.opacity = "0";
   });

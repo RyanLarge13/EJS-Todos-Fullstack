@@ -31,12 +31,12 @@ export const deleteTodo = async (req, res) => {
   const user = req.user;
   const newFinishedTodo = await FinishedTodos.create({
     Author: user._id,
-    Content: req.params.todo,
+    Content: req.params.title,
   });
   await newFinishedTodo.save();
   await Todos.deleteOne({
     Author: user._id,
-    Content: req.params.todo,
+    _id: req.params.todo,
   })
     .then((info) => {
       return res.status(200).send();
@@ -48,7 +48,7 @@ export const removeTodo = async (req, res) => {
   const user = req.user;
   await FinishedTodos.findOneAndDelete({
     Author: user._id,
-    Content: req.params.todo,
+    _id: req.params.todo,
   }).then((info, err) => {
     if (err) console.log(err);
     else {
