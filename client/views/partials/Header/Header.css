@@ -8,16 +8,13 @@ header {
   justify-content: flex-start;
   align-items: center;
   background-color: #fff;
-  box-shadow: 0 0.25em 0.5em 0 #000;
+  box-shadow: 0.25em 0 0.5em 0 #ff5858;
   z-index: 995;
 }
 .logo {
   font-size: 2.25em;
   margin-left: 0.5em;
   font-weight: 700;
-  background: -webkit-linear-gradient(#ffc500, #d53369);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 .logo a {
   text-decoration: none;

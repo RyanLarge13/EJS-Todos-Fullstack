@@ -63,6 +63,9 @@ const displayList = (e) => {
       arrayOfLists[i].style.display = "flex";
     }
   }
+  for (let k = 0; k < todos.length; k++) {
+    todos[k].style.animationDelay = `${k}00ms`;
+  }
   openAside(e);
 };
 
@@ -82,6 +85,11 @@ doneTodos.forEach((todo) => {
     const param = "remove/";
     deleteTodo(e, param);
   });
+});
+document.addEventListener("DOMContentLoaded", () => {
+for (let k = 0; k < todos.length; k++) {
+    todos[k].style.animationDelay = `${k}00ms`;
+  }
 });
 document.querySelector(".show-form").addEventListener("click", showForm);
 document

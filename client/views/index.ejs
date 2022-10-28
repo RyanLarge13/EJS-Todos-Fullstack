@@ -21,7 +21,7 @@ charset="utf-8"
 </head>
 <body class="flex-col">
 <%- include('./partials/Header/Header.ejs') %>
-<h2 class="welcome"><%=welcome%></h2>
+<h2 class="welcome text-grad-1"><%=welcome%></h2>
 <div class="intro">
 <h2>Create a list</h2>
 <p>
@@ -29,15 +29,14 @@ Add a ToDo
 </p>
 <h3>Get productive!</h3>
 </div>
-<a href="/signup" class="button flex-reg">Signup</a>
-<a href="/signin" class="button flex-reg">Sign in</a>
 <% if (profile) {
 %>
 <a href="/profile" class="button flex-reg">Profile</a>
 <%
 } else {
 %>
-<p></p>
+<a href="/signup" class="button flex-reg">Signup</a>
+<a href="/signin" class="button flex-reg">Sign in</a>
 <%
 } %>
 </body>
