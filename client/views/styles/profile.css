@@ -146,6 +146,19 @@ label {
   bottom: 2.5%;
   right: 2.5%;
 }
+.where {
+  background-color: #000;
+  color: #fff;
+  padding: 0.2em 0.5em;
+  border-radius: 0.5em;
+  width: 15%;
+  min-width: fit-content;
+  font-size: 0.75em;
+  text-align: center;
+}
+.content {
+  margin: 0 0.5em 0.5em 0;
+}
 .todo:nth-child(6n + 1) {
   background-image: linear-gradient(
     45deg,

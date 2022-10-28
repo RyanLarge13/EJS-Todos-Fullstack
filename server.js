@@ -51,7 +51,7 @@ app.get("/", (req, res) => {
     res.status(200).render("index", {
       profile: false,
       welcome:
-        "Please sign in, or signup for a new account to make your very own custom todo list!!",
+        "WELCOME",
     });
   }
 });

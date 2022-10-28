@@ -1,5 +1,5 @@
-const baseUrl = "https://ejs-todos.onrender.com/";
-// const baseUrl = "http://localhost:8080/";
+//const baseUrl = "https://ejs-todos.onrender.com/";
+const baseUrl = "http://localhost:8080/";
 
 export const toggleNav = (e) => {
   e.preventDefault();

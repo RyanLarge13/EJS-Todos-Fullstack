@@ -6,6 +6,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Acme", sans-serif;
+  user-select: none;
 }
 body {
   overflow-x: hidden;
@@ -76,7 +77,7 @@ input {
   -webkit-text-fill-color: transparent;
 }
 .text-grad-3 {
-  background: -webkit-linear-gradient(#1CD8D2, #93EDC7);
+  background: -webkit-linear-gradient(#1cd8d2, #93edc7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

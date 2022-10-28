@@ -29,11 +29,11 @@ charset="utf-8"
 <h2 class="show-form button">Add A Todo</h2>
 <form method="post" action="/add" class="flex-col profile-form">
 <i class="fa-regular fa-circle-xmark"></i>
-<label class="text-grad-1" for="title">What will you do today?</label>
+<label for="title">What will you do today?</label>
 <input type="text" name="title" id="title" />
-<label class="text-grad-2" for="time">What time?</label>
+<label for="time">What time?</label>
 <input type="datetime" name="time" id="time" />
-<label class="text-grad-3" for="location">Where?</label>
+<label for="location">Where?</label>
 <input type="text" name="location" id="location" />
 <button type="submit" class="button">Add Todo</button>
 </form>
@@ -60,8 +60,8 @@ Finished
 <p class="hidden">
 <%=todo._id%>
 </p>
-<h3><%=todo.Content%></h3>
-<h4><%=todo.Where%></h4>
+<h3 class="content"><%=todo.Content%></h3>
+<h4 class="where"><%=todo.Where ? todo.Where: 'None' %></h4>
 <% if (todo.When !== '') {
 %>
 <h5>Complete by <%=todo.When%></h5>
@@ -80,8 +80,8 @@ Finished
 <%=todo._id%>
 </p>
 
-<h3><%=todo.Content%></h3>
-<h4><%=todo.Where%></h4>
+<h3 class="content"><%=todo.Content%></h3>
+<h4 class="where"><%=todo.Where ? todo.Where: 'None' %></h4>
 <h5>Completed on <%=todo.createdAt.toLocaleDateString()%></h5>
 </div>
 <%
