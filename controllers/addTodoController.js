@@ -29,16 +29,17 @@ export const addTodo = async (req, res) => {
 
 export const deleteTodo = async (req, res) => {
   const user = req.user;
+  const todo = await Todos.findOne({ Author: user._id, _id: req.params.todo });
   const newFinishedTodo = await FinishedTodos.create({
     Author: user._id,
-    Content: req.params.title,
+    Content: todo.Content,
   });
   await newFinishedTodo.save();
   await Todos.deleteOne({
     Author: user._id,
     _id: req.params.todo,
   })
-    .then((info) => {
+    .then(() => {
       return res.status(200).send();
     })
     .catch((err) => console.log(err));
@@ -50,7 +51,7 @@ export const removeTodo = async (req, res) => {
     Author: user._id,
     _id: req.params.todo,
   }).then((info, err) => {
-    if (err) console.log(err);
+    if (err) console.log(err, info);
     else {
       res.status(200).send();
     }

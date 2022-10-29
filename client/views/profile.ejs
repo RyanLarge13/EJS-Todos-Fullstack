@@ -60,13 +60,13 @@ Finished
 <p class="hidden">
 <%=todo._id%>
 </p>
-<h3 class="content"><%=todo.Content%></h3>
-<h4 class="where"><%=todo.Where ? todo.Where: 'None' %></h4>
+<h3 class="content no-touch"><%=todo.Content%></h3>
+<h4 class="where no-touch"><%=todo.Where ? todo.Where: 'None' %></h4>
 <% if (todo.When !== '') {
 %>
-<h5>Complete by <%=todo.When%></h5>
+<h5 class="no-touch">Complete by <%=todo.When%></h5>
 <%} else { %>
-<h5><%=todo.When%></h5>
+<h5 class="no-touch"><%=todo.When%></h5>
 <%} %>
 </div>
 <%
@@ -80,9 +80,9 @@ Finished
 <%=todo._id%>
 </p>
 
-<h3 class="content"><%=todo.Content%></h3>
-<h4 class="where"><%=todo.Where ? todo.Where: 'None' %></h4>
-<h5>Completed on <%=todo.createdAt.toLocaleDateString()%></h5>
+<h3 class="content no-touch"><%=todo.Content%></h3>
+<h4 class="where no-touch"><%=todo.Where ? todo.Where: 'None' %></h4>
+<h5 class="no-touch">Completed on <%=todo.createdAt.toLocaleDateString()%></h5>
 </div>
 <%
 }); %>

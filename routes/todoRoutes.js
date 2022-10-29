@@ -5,5 +5,5 @@ import { addTodo, deleteTodo, removeTodo } from "../controllers/addTodoControlle
 export const todoRouter = express.Router();
 
 todoRouter.route("/add").post(authenticateRoute, addTodo);
-todoRouter.route("/delete/:todo/:title").delete(authenticateRoute, deleteTodo);
-todoRouter.route("/remove/:todo/:title").delete(authenticateRoute, removeTodo);
+todoRouter.route("/delete/:todo").delete(authenticateRoute, deleteTodo);
+todoRouter.route("/remove/:todo").delete(authenticateRoute, removeTodo);

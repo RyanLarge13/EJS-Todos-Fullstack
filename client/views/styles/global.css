@@ -81,6 +81,9 @@ input {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.no-touch {
+  pointer-events: none;
+}
 
 @media (min-width: 400px) and (max-width: 900px) {
   input {

@@ -74,9 +74,6 @@ label {
 .item:hover {
   scale: 1.025;
 }
-.list {
-  display: none;
-}
 #Todoo {
   display: flex;
 }
@@ -119,6 +116,7 @@ label {
   display: flex;
 }
 .list {
+  display: none;
   margin-top: 1em;
   flex-direction: column;
   justify-content: flex-start;

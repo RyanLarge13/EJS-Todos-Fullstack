@@ -1,5 +1,5 @@
-const baseUrl = "https://ejs-todos.onrender.com/";
-//const baseUrl = "http://localhost:8080/";
+// const baseUrl = "https://ejs-todos.onrender.com/";
+const baseUrl = "http://localhost:8080/";
 const todos = document.querySelectorAll(".todo");
 const doneTodos = document.querySelectorAll(".finished");
 const sideMenuBtns = document.querySelectorAll(".item");
@@ -25,20 +25,22 @@ const showForm = (e) => {
 };
 
 const deleteTodo = async (e, param) => {
-  const todo = e.target.parentElement;
-  const id = todo.firstElementChild.textContent;
-  const title = todo.children[1].textContent;
-  await fetch(`${baseUrl}${param}${id}/${title}`, {
+  const todo = e.target;
+  const id = todo.firstElementChild.innerHTML;
+  await fetch(`${baseUrl}${param}${id}`, {
     method: "DELETE",
   }).then((res) => {
     if (param === "remove/") {
-      return (todo.style.opacity = "0");
+      todo.style.opacity = "0";
+      return setTimeout(() => {
+        todo.style.height = '0px';
+      }, 500);
     }
-    setTimeout(function () {
-      // window.location = `${baseUrl}profile`;
-    }, 500);
     todo.style.opacity = "0";
-  });
+    setTimeout(function () {
+      window.location = `${baseUrl}profile`;
+    }, 500);
+  }).catch((err) => console.log(err));
 };
 
 const openAside = (e) => {
