@@ -8,6 +8,7 @@ h1 {
 }
 form {
   margin: 2em 0;
+  width: 50%;
 }
 .err {
   text-align: center;

@@ -36,11 +36,12 @@ nav {
 nav li {
   list-style-type: none;
   margin: 3em 0;
+  cursor: pointer;
 }
 nav a {
   padding: 2em;
   font-size: 1.5em;
-  color: #fff ;
+  color: #fff;
 }
 
 .nav-toggle span:nth-child(1).open {
