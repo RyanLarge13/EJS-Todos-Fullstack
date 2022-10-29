@@ -1,5 +1,5 @@
-// const baseUrl = "https://ejs-todos.onrender.com/";
-const baseUrl = "http://localhost:8080/";
+const baseUrl = "https://ejs-todos.onrender.com/";
+//const baseUrl = "http://localhost:8080/";
 const todos = document.querySelectorAll(".todo");
 const doneTodos = document.querySelectorAll(".finished");
 const sideMenuBtns = document.querySelectorAll(".item");
