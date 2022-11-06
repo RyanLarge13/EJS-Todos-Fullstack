@@ -27,6 +27,7 @@ app.use(
     store: MongoStore.create({
     	mongoUrl: process.env.MONGODB_URI 
     }),
+    expires: new Date(Date.now() + (30 * 86400 * 1000)),
   })
 );
 app.use(cors());
