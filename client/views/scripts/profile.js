@@ -1,4 +1,4 @@
-const baseUrl = "https://ejs-todos.onrender.com/";
+const baseUrl = "https://todo-fullstack-production.up.railway.app/";
 //const baseUrl = "http://localhost:8080/";
 const todos = document.querySelectorAll(".todo");
 const doneTodos = document.querySelectorAll(".finished");
