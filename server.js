@@ -57,6 +57,7 @@ app.get("/", (req, res) => {
   }
 });
 
+//port and url
 app.listen(port, "0.0.0.0", () =>
   console.log(`Your app is listening on port ${port} : http://localhost:8080`)
 );
