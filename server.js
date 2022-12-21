@@ -25,9 +25,9 @@ app.use(
     resave: true,
     saveUninitialized: true,
     store: MongoStore.create({
-    	mongoUrl: process.env.MONGODB_URI 
+      mongoUrl: process.env.MONGODB_URI,
     }),
-    expires: new Date(Date.now() + (30 * 86400 * 1000)),
+    expires: new Date(Date.now() + 30 * 86400 * 1000),
   })
 );
 app.use(cors());
@@ -51,8 +51,7 @@ app.get("/", (req, res) => {
   } else {
     res.status(200).render("index", {
       profile: false,
-      welcome:
-        "WELCOME",
+      welcome: "WELCOME",
     });
   }
 });
@@ -61,3 +60,5 @@ app.get("/", (req, res) => {
 app.listen(port, "0.0.0.0", () =>
   console.log(`Your app is listening on port ${port} : http://localhost:8080`)
 );
+
+export default app;
