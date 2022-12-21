@@ -1,4 +1,4 @@
-const baseUrl = "https://todo-fullstack-production.up.railway.app/";
+const baseUrl = "https://ejs-todos-fullstack.vercel.app/";
 //const baseUrl = "http://localhost:8080/";
 const todos = document.querySelectorAll(".todo");
 const doneTodos = document.querySelectorAll(".finished");
@@ -29,18 +29,20 @@ const deleteTodo = async (e, param) => {
   const id = todo.firstElementChild.innerHTML;
   await fetch(`${baseUrl}${param}${id}`, {
     method: "DELETE",
-  }).then((res) => {
-    if (param === "remove/") {
+  })
+    .then((res) => {
+      if (param === "remove/") {
+        todo.style.opacity = "0";
+        return setTimeout(() => {
+          todo.style.height = "0px";
+        }, 500);
+      }
       todo.style.opacity = "0";
-      return setTimeout(() => {
-        todo.style.height = '0px';
+      setTimeout(function () {
+        window.location = `${baseUrl}profile`;
       }, 500);
-    }
-    todo.style.opacity = "0";
-    setTimeout(function () {
-      window.location = `${baseUrl}profile`;
-    }, 500);
-  }).catch((err) => console.log(err));
+    })
+    .catch((err) => console.log(err));
 };
 
 const openAside = (e) => {
@@ -89,7 +91,7 @@ doneTodos.forEach((todo) => {
   });
 });
 document.addEventListener("DOMContentLoaded", () => {
-for (let k = 0; k < todos.length; k++) {
+  for (let k = 0; k < todos.length; k++) {
     todos[k].style.animationDelay = `${k}00ms`;
   }
 });
