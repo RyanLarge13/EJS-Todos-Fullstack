@@ -54,10 +54,6 @@ app.get("/", (req, res) => {
   }
 });
 
-app.get("/healthcheck", (req, res) => {
-  res.status(200).send();
-});
-
 app.listen(port, "0.0.0.0", () =>
   console.log(
     `Your app is listening on port ${port} : http://localhost:${port}`

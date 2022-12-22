@@ -1,4 +1,4 @@
-const baseUrl = "https://ejs-todos-fullstack.vercel.app/";
+const baseUrl = "https://ejs-todos.onrender.com/";
 
 export const toggleNav = (e) => {
   e.preventDefault();
