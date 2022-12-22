@@ -1,5 +1,4 @@
 const baseUrl = "https://ejs-todos-fullstack.vercel.app/";
-//const baseUrl = "http://localhost:8080/";
 const todos = document.querySelectorAll(".todo");
 const doneTodos = document.querySelectorAll(".finished");
 const sideMenuBtns = document.querySelectorAll(".item");

@@ -18,7 +18,6 @@ connectDB();
 const port = process.env.PORT || 8080;
 const app = express();
 
-//Middleware
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -34,13 +33,12 @@ app.use(cors());
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
-app.set("views", "./client/views");
-app.use(express.static("./client/views"));
+app.set("views", "./client");
+app.use(express.static("./client"));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/", signupRouter, signinRouter, todoRouter, profileRouter);
 
-//Incorporating the get request for the applications main index.ejs file from server js.
 app.get("/", (req, res) => {
   const user = req.user;
   if (user) {
@@ -56,9 +54,10 @@ app.get("/", (req, res) => {
   }
 });
 
-//port and url
 app.listen(port, "0.0.0.0", () =>
-  console.log(`Your app is listening on port ${port} : http://localhost:8080`)
+  console.log(
+    `Your app is listening on port ${port} : http://localhost:${port}`
+  )
 );
 
 export default app;

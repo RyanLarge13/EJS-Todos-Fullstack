@@ -1,20 +1,17 @@
 {
   "type": "module",
-  "name": "vanilla-todo-fullstack",
-  "version": "1.0.0",
+  "name": "ejs-todo-fullstack",
+  "version": "1.0.1",
   "description": "A fullstack todo list application.",
   "main": "server.js",
-  "engines": {
-  	"node": "14.x"
-  }, 
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Ryan Large",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
