@@ -24,22 +24,13 @@ const showForm = (e) => {
 };
 
 const deleteTodo = async (e, param) => {
-  const todo = e.target;
+  const todo = e.target.parentElement;
   const id = todo.firstElementChild.innerHTML;
   await fetch(`${baseUrl}${param}${id}`, {
     method: "DELETE",
   })
     .then((res) => {
-      if (param === "remove/") {
-        todo.style.opacity = "0";
-        return setTimeout(() => {
-          todo.style.height = "0px";
-        }, 500);
-      }
-      todo.style.opacity = "0";
-      setTimeout(function () {
-        window.location = `${baseUrl}profile`;
-      }, 500);
+      todo.remove();
     })
     .catch((err) => console.log(err));
 };
@@ -75,15 +66,15 @@ const displayList = (e) => {
 sideMenuBtns.forEach((btn) => {
   btn.addEventListener("click", displayList);
 });
-todos.forEach((todo) => {
-  todo.addEventListener("dblclick", (e) => {
+document.querySelectorAll(".close-todo").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
     e.preventDefault();
     const param = "delete/";
     deleteTodo(e, param);
   });
 });
-doneTodos.forEach((todo) => {
-  todo.addEventListener("dblclick", (e) => {
+document.querySelectorAll("close-finished").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
     e.preventDefault();
     const param = "remove/";
     deleteTodo(e, param);

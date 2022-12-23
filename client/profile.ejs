@@ -60,6 +60,7 @@ Finished
 <p class="hidden">
 <%=todo._id%>
 </p>
+<i class="fa-regular fa-circle-xmark close-todo"></i>
 <h3 class="content no-touch"><%=todo.Content%></h3>
 <h4 class="where no-touch"><%=todo.Where ? todo.Where: 'None' %></h4>
 <% if (todo.When !== '') {
@@ -79,7 +80,7 @@ Finished
 <p class="hidden">
 <%=todo._id%>
 </p>
-
+<i class="fa-regular fa-circle-xmark close-finished"></i> 
 <h3 class="content no-touch"><%=todo.Content%></h3>
 <h4 class="where no-touch"><%=todo.Where ? todo.Where: 'None' %></h4>
 <h5 class="no-touch">Completed on <%=todo.createdAt.toLocaleDateString()%></h5>
