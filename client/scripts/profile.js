@@ -73,7 +73,7 @@ document.querySelectorAll(".close-todo").forEach((btn) => {
     deleteTodo(e, param);
   });
 });
-document.querySelectorAll("close-finished").forEach((btn) => {
+document.querySelectorAll(".close-finished").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
     const param = "remove/";
