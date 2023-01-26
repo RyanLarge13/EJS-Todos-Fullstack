@@ -21,12 +21,13 @@ const app = express();
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    resave: true,
+    resave: false,
+    rolling: true,
     saveUninitialized: true,
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI,
     }),
-    expires: new Date(Date.now() + 30 * 86400 * 1000),
+    maxAge: new Date(Date.now() + 30 * 86400 * 1000),
   })
 );
 app.use(cors());
