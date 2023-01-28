@@ -26,6 +26,7 @@ app.use(
     saveUninitialized: true,
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI,
+      ttl: new Date(Date.now() + 30 * 86400 * 1000),
     }),
     maxAge: new Date(Date.now() + 30 * 86400 * 1000),
   })
