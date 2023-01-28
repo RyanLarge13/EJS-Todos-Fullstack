@@ -17,7 +17,7 @@ connectDB();
 
 const port = process.env.PORT || 8080;
 const app = express();
-const age = new Date(Date.now() + 30 * 86400 * 1000);
+const age = 10 * 24 * 5 * 1000;
 
 app.use(
   session({
