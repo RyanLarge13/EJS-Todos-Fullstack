@@ -22,9 +22,9 @@ const age = new Date(Date.now() + 30 * 86400 * 1000);
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    resave: true,
+    resave: false,
     rolling: true,
-    saveUninitialized: false,
+    saveUninitialized: true,
     cookie: {
       key: process.env.SESSION_SECRET,
       secure: true,
