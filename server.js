@@ -17,18 +17,27 @@ connectDB();
 
 const port = process.env.PORT || 8080;
 const app = express();
+const age = new Date(Date.now() + 30 * 86400 * 1000);
 
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    resave: false,
+    resave: true,
     rolling: true,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    cookie: {
+      key: process.env.SESSION_SECRET,
+      secure: true,
+      sameSite: false,
+      httpOnly: true,
+      maxAge: age,
+    },
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI,
-      ttl: new Date(Date.now() + 30 * 86400 * 1000),
+      ttl: age,
+      autoRemove: "disabled",
     }),
-    maxAge: new Date(Date.now() + 30 * 86400 * 1000),
+    maxAge: age,
   })
 );
 app.use(cors());
