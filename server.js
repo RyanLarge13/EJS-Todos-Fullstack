@@ -25,13 +25,6 @@ app.use(
     resave: false,
     rolling: true,
     saveUninitialized: true,
-    cookie: {
-      key: process.env.SESSION_SECRET,
-      secure: true,
-      sameSite: false,
-      httpOnly: true,
-      maxAge: age,
-    },
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI,
       ttl: age,
